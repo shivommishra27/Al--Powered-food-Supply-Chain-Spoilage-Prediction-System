@@ -11,13 +11,33 @@ from .config import CLF_PATH, FEATURES, MODEL_DIR, REG_PATH
 _cache = {}
 
 
+def ensure_models() -> None:
+    """Train models on synthetic data if they are not present yet."""
+    from .config import DATA_PATH
+    from .generate_data import generate
+    from .train import train
+
+    if CLF_PATH.exists() and REG_PATH.exists():
+        return
+    if DATA_PATH.exists():
+        df = pd.read_csv(DATA_PATH)
+    else:
+        df = generate()
+        DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
+        df.to_csv(DATA_PATH, index=False)
+    train(df)
+
+
 def load_models(model_dir=None):
     d = Path(model_dir) if model_dir else MODEL_DIR
     key = str(d)
     if key not in _cache:
         clf_path, reg_path = d / CLF_PATH.name, d / REG_PATH.name
         if not clf_path.exists() or not reg_path.exists():
-            raise FileNotFoundError("Models not found. Run: python -m src.train")
+            if model_dir is None:
+                ensure_models()          # first run (e.g. cloud deploy): train automatically
+            else:
+                raise FileNotFoundError(f"Models not found in {d}")
         _cache[key] = (joblib.load(clf_path), joblib.load(reg_path))
     return _cache[key]
 
