@@ -1,1 +1,0 @@
-# Al--Powered-food-Supply-Chain-Spoilage-Prediction-System
