@@ -1,5 +1,5 @@
 # 🥦 AI-Powered Food Supply Chain Spoilage Prediction System
-
+🔗 **Live Demo:** https://al--powered-food-supply-chain-spoilage-prediction-system-uihkw.streamlit.app/
 A machine-learning system that predicts **spoilage risk** and **remaining shelf life** of perishable food in the cold chain, using sensor-style data (temperature, humidity, transit time, CO₂, ethylene, door-open events, vibration, packaging).
 
 ## Features
