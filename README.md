@@ -1,5 +1,7 @@
 # 🥦 AI-Powered Food Supply Chain Spoilage Prediction System
-🔗 **Live Demo:** https://al--powered-food-supply-chain-spoilage-prediction-system-uihkw.streamlit.app/
+🔗 **Live Demo:** 
+https://al--powered-food-supply-chain-spoilage-prediction-system-uihkw.streamlit.app/
+
 A machine-learning system that predicts **spoilage risk** and **remaining shelf life** of perishable food in the cold chain, using sensor-style data (temperature, humidity, transit time, CO₂, ethylene, door-open events, vibration, packaging).
 
 ## Features
@@ -27,8 +29,8 @@ A machine-learning system that predicts **spoilage risk** and **remaining shelf 
 
 ## Quick Start
 ```bash
-git clone https://github.com/<your-username>/food-spoilage-prediction.git
-cd food-spoilage-prediction
+git clone https://github.com/shivommishra27/Al--Powered-food-Supply-Chain-Spoilage-Prediction-System.git
+cd Al--Powered-food-Supply-Chain-Spoilage-Prediction-System
 python -m venv venv && source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
